@@ -1,0 +1,60 @@
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Registro{%endblock%}
+
+{%block content%}
+<body>
+<!-- Estilo propio  -->
+    <style>
+        .caja{
+            margin: 10%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .caja h3 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid #76571E;
+        }
+
+    </style>
+<!-- Registro de usuario  -->
+    <div class="caja">
+        <h3>Registro de usuario</h3>
+            <div class="card">
+                <div class="mb-3">
+                    <div class="col-xl-10 justify-content-center">
+                        <!-- Formulario de registro de Usuario -->
+                            <form action="{{ url_for('register') }}" method="POST">
+                                </br>
+                                <label for="username" class="form-label mx-3"> Email Usuario:</label>
+                                <input type="email" id="username" name="username" placeholder="name@example.es" class="form-control mx-3" required>
+                                </br>
+                                <label for="password" class="form-label mx-3">Contraseña:</label>
+                                <input type="password" id="password" name="password" class="form-control mx-3" required>
+                                </br>
+                                <!-- Tipo de rol = 2 siempre. Es rol Usuario normal  -->
+                                <label for="rol" class="form-label mx-3">Tipo:</label>
+                                <select class="form-select mx-3" id="rol" name="rol" required>
+                                    <option selected disabled value="">Elegir..</option>
+                                    <option>2</option>
+                                </select>
+                                </br>
+                                <label for="name" class="form-label mx-3">Nombre:</label>
+                                <input type="text" id="name" name="name" class="form-control mx-3" required>
+                                </br>
+                                <label for="surnames" class="form-label mx-3">Apellidos:</label>
+                                <input type="text" id="surnames" name="surnames" class="form-control mx-3"  required>
+                                </br>
+                                <label for="address" class="form-label mx-3">Dirección:</label>
+                                <input type="text" id="address" name="address" class="form-control mx-3"  required>
+                                </br>
+                                <input type="submit" value="Registrarse" class="btn btn-primary mx-3">
+                            </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+{%endblock%}

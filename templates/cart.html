@@ -1,0 +1,124 @@
+ <!-- Extension del Index -->
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Nosotros{%endblock%}
+
+ {%block content%}
+ <body>
+ <!--Estilos propios -->
+    <style>
+    body{
+    margin-top:20px;
+    background:#F4F0EC;
+}
+
+    .caja{
+            margin:10%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+    .ui-w-40 {
+        width: 40px !important;
+        height: auto;
+}
+
+     .ui-product-color {
+        display: inline-block;
+        overflow: hidden;
+        margin: .144em;
+        width: .875rem;
+        height: .875rem;
+        border-radius: 10rem;
+        -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+        vertical-align: middle;
+}
+
+   .card{
+        box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+}
+
+    .card-header{
+        text-align: center;
+        background-color: #A5865B;
+        color: white;
+        box-shadow: 1px 10px 15px rgba(0,0,0,0.50);
+        font-family: sriracha;
+}
+
+    .card-footer {
+        text-align: end;
+        color: #A5865B;
+    }
+
+    </style>
+     <div class="caja">
+    <div class="card">
+        <!-- Cabecera del Carrito -->
+        <div class="card-header">
+            <h2>Mi Carrito</h2>
+        </div>
+        <!-- Cuerpo del Carrito -->
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered m-0">
+                <thead>
+                  <tr>
+                    <!-- Columnas de la Cabecera del Carrito -->
+                    <th class="text-center py-3 px-4" style="min-width: 120px;">Imagen</th>
+                    <th class="text-center py-3 px-4" style="min-width: 400px;">Producto</th>
+                    <th class="text-right py-3 px-4" style="width: 100px;">Precio</th>
+                    <th class="text-center py-3 px-4" style="width: 120px;">Cantidad</th>
+                    <th class="text-right py-3 px-4" style="width: 100px;">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!-- Productos del Carrito -->
+                {% for product in orders %}
+                    <tr>
+                        <td class="p-4">
+                          <div class="media align-items-center">
+                                <img src="static/images/Products/{{product.image}}" width="15%" class="d-block ui-w-50 ui-bordered mr-4 " alt="">
+                                <div class="media-body">
+                                  <a class="d-block text-dark"></a>
+                                </div>
+                                <td class="text-right font-weight-semibold align-middle p-4">{{product.title}}</td>
+                                <td class="text-center font-weight-semibold align-middle p-4">{{product.price}}</td>
+                                <td class="text-center font-weight-semibold align-middle p-4">{{product.amount}}</td>
+                                <td class="text-center align-middle px-0">
+                                    <a href="delete-order/{{product.id}}" class="shop-tooltip close float-none text-danger" title="Eliminar">×</a>
+                                </td>
+                          </div>
+                        </td>
+                    </tr>
+                {%endfor%}
+                </tbody>
+              </table>
+            </div>
+        <!-- / Pie del Carrito -->
+        <div class="card-footer">
+            <div class="d-flex flex-wrap justify-content-between pb-4">
+              <!--Informacion del Importe total del Carrito -->
+              <div class="d-flex text-end">
+                <div class="text-end mt-4 fs-5 fw-bold">
+                  <label class="text-large font-weight mt-2">Importe Total</label>
+                    <p class="text-large">{{  '{:.2f}'.format(result) }}€</p>
+                </div>
+              </div>
+            </div>
+        </div>
+            <!--Boton para Vaciar el carrito -->
+            <div class="float-right">
+                <form action="/delete-cart" method="post">
+                    <input type="submit" class="btn btn-md btn-box-shadow" value="Vaciar Carrito"></input>
+                </form>
+            <!--Boton que redireccionaría al metodo de pago si el carrito fuera funcional -->
+              <button type="button" class="btn btn-outline-success">Confirmar Compra</button>
+            </div>
+          </div>
+      </div>
+  </div>
+ </body>
+ {%endblock%}
+

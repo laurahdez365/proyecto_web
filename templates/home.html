@@ -1,0 +1,66 @@
+ <!-- Extension del Index -->
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Inicio{%endblock%}
+
+ {%block content%}
+<body>
+ <!-- Estilos propios -->
+ <style>
+    .caja{
+        margin:5%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .caja h1 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 2px solid #76571E;
+        }
+ </style>
+
+
+ <div>
+        <!--Foto portada inicio ajustada a la web -->
+         <div class="inicio">
+             <figure>
+                 <img class="img-responsive" src="static/images/Design/portada.jpg" alt="Foto de portada" style="width:100%;"/>
+             </figure>
+         </div>
+         <div class="caja">
+         <!--Titulo -->
+             <h1>NUESTROS PRODUCTOS NATURALES</h1>
+         </div>
+     <div class="container">
+         <br>
+         <div class="portada">
+             <!--Enlaace a productos de categoria Snacks -->
+             <figure>
+                 <a href="{{ url_for('snacks') }}">
+                 <img class="img-responsive" src="static/images/Design/portada-snacks.webp" alt="Foto de portada snack" style="width:100%;"/>
+                 </a>
+             </figure>
+         </div>
+         <div class="portada">
+             <!--Enlaace a productos de categoria Lifestyle -->
+             <figure>
+                 <a href="{{ url_for('lifestyle') }}">
+                 <img class="img-responsive" src="static/images/Design/portada-accesorios.webp" alt="Foto de portada accesorios" style="width:100%;"/>
+                 </a>
+             </figure>
+         </div>
+         <div class="portada">
+             <!--Enlaace a productos de categoria Complements -->
+             <figure>
+                 <a href="{{ url_for('complements') }}">
+                 <img class="img-responsive" src="static/images/Design/portada-complementos.webp" alt="Foto de portada complementos" style="width:100%;"/>
+                 </a>
+             </figure>
+         </div>
+     </div>
+ </div>
+ </body>
+{%endblock%}
+
+

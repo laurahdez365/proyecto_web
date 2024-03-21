@@ -1,0 +1,78 @@
+<!-- Extension del Index -->
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Complementos Naturales{%endblock%}
+
+{%block content%}
+
+ <style>
+     .card-header {
+        color: #956A1C;
+     }
+
+     .text {
+        color: #956A1C;
+     }
+
+
+
+ </style>
+ <!-- Contenido de la web para cada producto -->
+ <body>
+   <!--Foto Nosotros ajustada a la web -->
+     <div>
+         <div class="snacks">
+             <figure>
+                 <img class="img-responsive" src="static/images/Design/portada-complementos.webp" alt="Foto complementos" style="width:100%;"/>
+             </figure>
+         </div>
+     </div>
+        <!-- Seccion productos -->
+
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <!-- Para cada producto en la tabla Productos -->
+                    {% for product in products %}
+                        <div class="mb-5">
+                            <div class="card h-100">
+                                <!-- Cuerpo de la tarjeta -->
+                                <div class="card-body p-4">
+                                      <div class="col-m-4 col-s-6">
+                                          <!-- Imagen del producto -->
+                                          <img src="static/images/Products/{{product.image}}" class="card-img-top" width="70%"/>
+                                          <!-- Titulo del producto -->
+                                          <h5 class="card-header text-center fs-5 fw-bolder text-decoration-underline my-2">{{product.title}}</h5>
+                                          <!-- Descripcion del producto -->
+                                          <details class="text fs-5 my-2">{{product.description}}</details>
+                                          <ul class="list-group list-group-flush"></ul>
+                                      </div>
+                                </div>
+                                <div class="card-footer">
+                                    <!-- Pie de la tarjeta -->
+                                    <!-- Precio del producto -->
+                                        <li class="list-group-item fw-bolder">Precio: {{product.price}}€
+                                            <div class="d-grid mx-auto">
+                                                <!-- Cantidad a ingresar del producto para el pedido -->
+                                                <div class="col-auto">
+                                                    <label for="amount" class="col-form-label">Cantidad:</label>
+                                                </div>
+                                                <!-- Datos a mandar cuando se apriete el boton de Añadir al Carrito -->
+                                                <form action="/add-cart<id>" method="post">
+                                                        <input name="image" type="hidden" id="image" value="{{product.image}}" class="form-control"/>
+                                                        <input name="title" type="hidden" id="title" value="{{product.title}}" class="form-control"/>
+                                                        <input name="price" type="hidden" id="price" value="{{product.price}}" class="form-control"/>
+                                                        <input name="amount" type="number" id="amount" value=1 min=1 class="form-control"/>
+                                                    <button type="submit" class="btn btn-md btn-outline-secondary my-2">Añadir al Carrito
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </li>
+                                </div>
+                            </div>
+                         </div>
+                    {%endfor%}
+                </div>
+            </div>
+</body>
+
+{%endblock%}

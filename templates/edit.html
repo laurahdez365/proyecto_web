@@ -1,0 +1,54 @@
+{%extends 'index.html'%}
+
+{%block title%}Crear Producto{%endblock%}
+
+{%block content%}
+<body>
+ <!-- Estilos propios -->
+    <style>
+        .caja{
+            margin:10%;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+
+        .caja h3 {
+            text-align: center;
+            padding: 0 0 20px 0;
+            border-bottom: 1px solid #76571E;
+            }
+
+
+    </style>
+
+ <!-- Formulario editar productos -->
+<div class="caja">
+    <h1 class="mt-5 mb-3">Modificar Producto</h1>
+
+    <form action="/edit{{product.id}}" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" id="title" name="new_title" value="{{ product.title }}" placeholder="Nuevo Nombre del Producto">
+        </div>
+        <div class="form-group">
+            <input type=text" class="form-control" id="category" name="new_category" value="{{ product.category }}" placeholder="Nueva Categoria del Producto (snack, lifestyle, complementos)"></input>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="description" name="new_description" placeholder="Nueva Descripción del Producto" rows="3">{{ product.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" id="price" name="new_price" value="{{ product.price }}"placeholder="Nuevo Precio del Producto">
+        </div>
+        <div class="form-group">
+            <input type="file" placeholder="image" name="new_image" value="{{ product.image }}">
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <br>
+                <br>
+        </div>
+    </form>
+</div>
+</body>
+
+
+{%endblock%}

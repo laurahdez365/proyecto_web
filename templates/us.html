@@ -1,0 +1,67 @@
+ <!-- Extension del Index -->
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Nosotros{%endblock%}
+
+ {%block content%}
+<body>
+ <!--Estilos propios -->
+    <style>
+    .caja{
+        margin:10%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .caja h1 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid #76571E;
+        }
+
+    .caja h5 {
+        text-align: justify;
+        }
+
+    .caja h4 {
+        color: #956A1C;
+        }
+
+    </style>
+
+    <!--Foto Nosotros ajustada a la web -->
+     <div>
+         <div class="nosotros">
+             <figure>
+                 <img class="img-responsive" src="static/images/Design/nosotros.webp" alt="Foto nosotros" style="width:100%;"/>
+             </figure>
+         </div>
+
+
+    <!--Texto web -->
+     <div class="caja">
+         <h1>NUESTRO OBJETIVO</h1>
+            <figure class="text-center">
+            <h2 class="text-muted">Mejorar la calidad de vida de nuestros perros, los mejores amigos.</h2>
+            </figure>
+     </div>
+     <div class="caja">
+         <h1>NUESTRA HISTORIA</h1>
+            <figure class="text-align">
+                <h5 class="lh-base">Después de un día de residencia con perros rescatados, nos surgió una idea. Por qué no crear una marca de alimentación para perros, nuestros compañeros peludos, con la misma calidad que la de sus amigos humanos. Nos pusimos manos a la obra y unos meses después nació NATURSnack con el objetivo de mejorar la calidad de vida de nuestros perros y su entorno.
+                 Sabíamos que los inicios son siempre difíciles, pero tras llamar a muchas puertas, logramos encontrar una empresa de alimentación destinada al consumo humano que estaba plenamente alineada con nuestra idea inicial. ¡Fue todo un flechazo!</h5>
+            </figure>
+                </br>
+                <h4 class="text-decoration-underline">Comprometidos con el entorno</h4>
+                <h5 class="lh-base">La práctica totalidad de la materia prima, para la comida de nuestros perros, proviene de ganaderías ubicadas en Salamanca y en el norte de Extremadura. Salvo el pescado, ¡claro! que viene del mar Cantábrico.
+                Además, hemos puesto un especial empeño en que nuestro packaging, gracias a su diseño minimalista y funcional, sea responsable con el medio ambiente.</h5>
+                </br>
+                <h4 class="text-decoration-underline">Los detalles marcan la diferencia</h4>
+                <h5 class="lh-base">Nuestra gama LifeStyle tiene una producción limitada.
+                Cada producto se elabora a mano por artesanos locales, por lo que ¡no encontrarás ninguno igual!</h5>
+
+     </div>
+     </div>
+ </body>
+
+ {%endblock%}

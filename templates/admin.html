@@ -1,0 +1,76 @@
+<!-- Extension del Index -->
+{%extends 'index.html'%}
+
+{%block title%}NATURSnack - Administrador{%endblock%}
+
+ {%block content%}
+<body>
+ <!-- Estilos propios -->
+ <style>
+    .caja{
+        margin:5%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .caja h1 {
+        text-align: center;
+        padding: 0 0 20px 0;
+        border-bottom: 2px solid #76571E;
+        }
+ </style>
+
+ <!--Foto portada inicio ajustada a la web -->
+ <div>
+         <div class="Admin">
+             <figure>
+                 <img class="img-responsive" src="static/images/Design/1.jpg" alt="Foto de portada" style="width:100%;"/>
+             </figure>
+         </div>
+        <!--Titulo productos -->
+        <div class="caja">
+             <h1>PRODUCTOS</h1>
+
+         <!--Boton Agregar productos -->
+            <div class="d-grid gap-2">
+            <a href="{{ url_for('create_product') }}" type="button" class="btn btn-success btn-lg" >Agregar producto</a>
+            </div>
+        </div>
+
+        <!-- Seccion productos -->
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+                    <!--Para cada producto en la DB de productos -->
+                    {% for product in products %}
+                        <div class="mb-5">
+                            <div class="card h-100">
+                                <div class="card-body p-4">
+                                      <div class="col-m-4 col-s-6">
+                                          <img src="static/images/Products/{{product.image}}" class="card-img-top" width="70%"/>
+                                          <h5 class="card-header text-center fs-5 fw-bolder text-decoration-underline my-2">{{product.title}}</h5>
+                                          <details class="text fs-5 my-2">{{product.description}}</details>
+                                          <ul class="list-group list-group-flush"></ul>
+                                      </div>
+                                </div>
+                                    <div class="card-footer">
+                                        <li class="list-group-item">Precio: {{product.price}}€</li>
+
+                                        <!--Boton Eliminar producto -->
+                                        <a href="delete-product/{{product.id}}">
+                                        <button type="button" class="btn btn-outline-danger">Eliminar</button>
+                                        </a>
+                                        <!--Boton Modificar productos -->
+                                        <a href="/edit{{product.id}}">
+                                        <button type="button" class="btn btn-outline-secondary">Modificar</button>
+                                        </a>
+                                    </div>
+                            </div>
+                         </div>
+                    {%endfor%}
+                </div>
+            </div>
+ </div>
+</body>
+
+  {%endblock%}
